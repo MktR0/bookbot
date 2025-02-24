@@ -1,3 +1,4 @@
 # bookbot
-This is a bookbot, a boot.dev project.
-Must contain the Phrase "my first project"
+
+
+BookBot is my first [Boot.dev](https://www.boot.dev) project!
