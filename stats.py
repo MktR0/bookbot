@@ -16,9 +16,6 @@ def get_char_count(formatted_text: str) -> dict:
 def sort_on(n):
     return n["num"]
 
-def chars_dict_to_sorted_list(num_chars_dict):
-    sorted_list = []
-    for char in num_chars_dict:
-        sorted_list.append({"char": char, "num": num_chars_dict[char]})
-    sorted_list.sort(reverse=True, key=sort_on)
-    return sorted_list
+def chars_dict_to_sorted_list(char_count):
+    sorted_char_count: dict = dict(sorted(char_count.items(), key=lambda char_count:char_count[1], reverse=True))
+    return sorted_char_count

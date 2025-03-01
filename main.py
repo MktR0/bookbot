@@ -3,6 +3,7 @@ import sys
 from stats import (
         get_word_count,
         get_char_count,
+        chars_dict_to_sorted_list,
         )
 def main():
     try:
@@ -29,8 +30,7 @@ def prepare_report(book_path: str, text: str):
     word_count: int = get_word_count(text)
     chars  = text.split()
     char_count: dict = get_char_count(format_text(chars))
-    sorted_char_count: dict = dict(sorted(char_count.items(), key=lambda char_count:char_count[1], reverse=True))
-
+    sorted_char_count = chars_dict_to_sorted_list(char_count)
     return title, word_count, sorted_char_count
 
 
