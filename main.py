@@ -1,5 +1,4 @@
 import sys
-from typing import final
 
 from stats import (
         get_word_count,
