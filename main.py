@@ -1,3 +1,4 @@
+import os
 import sys
 
 from stats import (
@@ -8,12 +9,25 @@ from stats import (
 def main():
     try:
         book_path = sys.argv[1]
-        text = get_book_text(book_path)
-        report = prepare_report(book_path, text)
-        final_report = generate_report(report, book_path)
-        print_report(final_report, book_path)
-    except Exception:
+        print(book_path)
+        if os.path.isfile(book_path):
+            text = get_book_text(book_path)
+            report = prepare_report(book_path, text)
+            final_report = generate_report(report, book_path)
+            print_report(final_report, book_path)
+
+        if os.path.isdir(book_path):
+            for file in os.listdir(book_path):
+                file_path = os.path.join(book_path,file)
+                text = get_book_text(file_path)
+                report = prepare_report(file_path, text)
+                final_report = generate_report(report, file_path)
+                print_report(final_report, file_path)
+               
+         
+    except Exception as e:
         print("Usage: py(thon3) main.py <path_to_book>")
+        print(e)
         sys.exit(1)
 
 
